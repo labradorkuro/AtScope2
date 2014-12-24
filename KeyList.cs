@@ -30,5 +30,9 @@ namespace LicenseGenerator
             }
             return null;
         }
+        public void Clear()
+        {
+            this.keyList.Clear();
+        }
     }
 }

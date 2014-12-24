@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.IO;
 namespace LicenseGenerator
 {
-    class KeyGenerator
+    public class KeyGenerator
     {
         private string[] editions = new string[] {"STDD","MANA","ARCH" };
         private string keySeedString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -24,11 +24,30 @@ namespace LicenseGenerator
             generateString = result;
             return result;
         }
+        public void setGenerateKeyString(string key)
+        {
+            this.generateString = key;
+        }
         public string getEditionString(int index)
         {
             return this.editions[index];
         }
-
+        /// <summary>
+        /// エディション文字列からそのインデックスを取得する
+        /// </summary>
+        /// <param name="edition"></param>
+        /// <returns></returns>
+        public int getEditionIndex(string edition)
+        {
+            for (int i = 0; i < editions.Length; i++)
+            {
+                if (edition.Equals(editions[i]))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         /// <summary>
         /// ライセンスキー文字列の生成
         /// </summary>

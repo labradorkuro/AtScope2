@@ -14,6 +14,7 @@ namespace LicenseGenerator
     {
         private KeyGenerator keyGen = new KeyGenerator();   // キー文字列処理クラス
         private KeyList keyList = new KeyList();            // ライセンスキーのリスト
+        bool isDirty = false;   // 変更フラグ
         /// <summary>
         /// フォームの初期化処理
         /// </summary>
@@ -25,6 +26,7 @@ namespace LicenseGenerator
             this.buttonLicenseKeyIssue.Enabled = false;
             this.buttonDescrypt.Enabled = false;
             this.toolStripButtonSave.Enabled = false;
+            initListView();
         }
         /// <summary>
         /// 終了ボタン処理
@@ -33,7 +35,18 @@ namespace LicenseGenerator
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            if (isDirty)
+            {
+                // 変更あり
+                if (MessageBox.Show("保存されていない変更があります。保存しないで終了しますか？", "確認", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         /// <summary>
@@ -46,6 +59,9 @@ namespace LicenseGenerator
             string key = keyGen.createKeyStrings();
             this.textBoxGenerateStrings.Text = key;
             this.buttonKeyStringGet.Enabled = true;
+            this.toolStripButtonSave.Enabled = true;
+            isDirty = true;
+            // 保存ボタン有効化
             this.toolStripButtonSave.Enabled = true;
         }
         /// <summary>
@@ -95,8 +111,10 @@ namespace LicenseGenerator
             // キー情報をリストに追加する
             KeyData kd = new KeyData(last_index, license,this.textBoxLicenseClientName.Text);
             keyList.addKeyData(kd);
+            addListViewItem(last_index + 1, kd);
             // 保存ボタン有効化
             this.toolStripButtonSave.Enabled = true;
+            isDirty = true;
         }
 
         /// <summary>
@@ -129,14 +147,20 @@ namespace LicenseGenerator
                 for (int i = 0; i < keyList.getLength(); i++)
                 {
                     KeyData kd = keyList.getKeyData(i);
-                    string line = (i + 1).ToString() + "," + kd.getIndex().ToString() + "," + kd.getKey() + "," + this.textBoxLicenseClientName.Text;
+                    string line = (i + 1).ToString() + "," + kd.getIndex().ToString() + "," + kd.getKey() + "," + kd.getClientName();
                     sr.WriteLine(line);
                 }
                 sr.Close();
-
+                // 保存ボタン有効化
+                this.toolStripButtonSave.Enabled = false;
+                isDirty = false;
             }
         }
-
+        /// <summary>
+        /// キー情報ファイルの読込み
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonOpen_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.Filter = "Text Files(.txt)|*.txt";
@@ -145,7 +169,10 @@ namespace LicenseGenerator
                 string fn = this.openFileDialog1.FileName;
                 StreamReader sr = new StreamReader(fn, Encoding.Default);
                 // ５１２文字のキー文字列を読む
-                this.textBoxGenerateStrings.Text = sr.ReadLine();
+                string keyStr = sr.ReadLine();
+                this.textBoxGenerateStrings.Text = keyStr;
+                keyGen.setGenerateKeyString(keyStr);
+                this.keyList.Clear();
                 sr.ReadLine();
                 string line = "";
                 while ((line = sr.ReadLine()) != null)
@@ -156,8 +183,70 @@ namespace LicenseGenerator
                 }
                 sr.Close();
                 this.buttonKeyStringGet.Enabled = true;
+                createListView();
             }
 
+        }
+        private void initListView()
+        {
+            this.listViewLicenseKeyList.Clear();
+            this.listViewLicenseKeyList.Items.Clear();
+            this.listViewLicenseKeyList.Columns.Clear();
+            this.listViewLicenseKeyList.View = View.Details;
+            this.listViewLicenseKeyList.FullRowSelect = true;
+            this.listViewLicenseKeyList.GridLines = true;
+            this.listViewLicenseKeyList.CheckBoxes = false;
+            this.listViewLicenseKeyList.Sorting = SortOrder.Descending;
+
+            this.listViewLicenseKeyList.Columns.Add("番号", 60, HorizontalAlignment.Center);
+            this.listViewLicenseKeyList.Columns.Add("Index", 60, HorizontalAlignment.Center);
+            this.listViewLicenseKeyList.Columns.Add("Key", 200, HorizontalAlignment.Center);
+            this.listViewLicenseKeyList.Columns.Add("ライセンス先名称", 200, HorizontalAlignment.Center);
+        }
+        private void createListView()
+        {
+            this.listViewLicenseKeyList.Items.Clear();
+            for (int i = 0; i < keyList.getLength(); i++)
+            {
+                KeyData kd = keyList.getKeyData(i);
+                addListViewItem(i + 1, kd);
+            }
+        }
+        private void addListViewItem(int no,KeyData kd)
+        {
+            ListViewItem item = new ListViewItem();
+            string n = no.ToString();
+            item.Text = n;
+            item.SubItems.Add(kd.getIndex().ToString());
+            item.SubItems.Add(kd.getKey());
+            item.SubItems.Add(kd.getClientName());
+            this.listViewLicenseKeyList.Items.Add(item);
+        }
+        /// <summary>
+        /// ライセンスキーリストの選択イベント処理
+        /// 選択した内容をフォームに表示する
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listViewLicenseKeyList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.listViewLicenseKeyList.SelectedItems.Count > 0)
+            {
+                ListViewItem item = this.listViewLicenseKeyList.SelectedItems[0];
+                // インデックス
+                this.textBoxKeyIndex.Text = item.SubItems[1].Text;
+                // キー
+                this.textBoxLicenseKeyEncrypt.Text = item.SubItems[2].Text;
+                // ライセンス先名称
+                this.textBoxLicenseClientName.Text = item.SubItems[3].Text;
+                // 暗号化された開始日付とエディションを復号化して表示する
+                string um = keyGen.unmaskLast8(this.textBoxLicenseKeyEncrypt.Text);
+                string ym = "20" + um.Substring(0, 2) + "/" + um.Substring(2,2);
+                string edition = um.Substring(4, 4);
+                this.comboBoxEditionList.SelectedIndex = keyGen.getEditionIndex(edition);
+                this.dateTimePickerStartDate.Text = ym;
+                this.buttonLicenseKeyIssue.Enabled = false;
+            }
         }
     }
 }
