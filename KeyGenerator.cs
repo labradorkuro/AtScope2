@@ -102,23 +102,40 @@ namespace LicenseGenerator
         }
 
         /// <summary>
-        /// 暗号化した文字列をもとに戻す
+        /// 暗号化した使用開始日とエディション文字列をもとに戻す
         /// </summary>
         /// <param name="key"></param>
         /// <param name="mask"></param>
         /// <returns></returns>
         public string unmaskLast8(string keyString)
         {
-            string result = "";
             string[] s = keyString.Split(new char[] { '-' });
             string key = s[0] + s[1];
             string mask = s[2] + s[3];
+            return decrypt(key, mask);
+        }
+        /// <summary>
+        /// 利用コード（有効期限とエディション）の復号化
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="keyString"></param>
+        /// <returns></returns>
+        public string decryptUseCode(string code, string keyString)
+        {
+            string[] s = keyString.Split(new char[] { '-' });
+            string key = s[0] + s[1];
+            string mask = code.Substring(0, 4) + code.Substring(5, 4);
+            return decrypt(key, mask);
+        }
+        public string decrypt(string s1, string s2)
+        {
+            string result = "";
             for (int i = 0; i < 8; i++)
             {
                 // 後半8文字のインデックスを取得する
-                int idx1 = keySeedString.IndexOf(mask[i]);
+                int idx1 = keySeedString.IndexOf(s2[i]);
                 // 前半8文字のインデックスを取得する
-                int idx2 = keySeedString.IndexOf(key[i]);
+                int idx2 = keySeedString.IndexOf(s1[i]);
                 // 後半文字のインデックスに前半文字のインデックスを加算してあるので減算する
                 int idx = idx1 - idx2;
                 if (idx < 0)

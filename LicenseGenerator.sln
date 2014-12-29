@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseGenerator", "LicenseGenerator.csproj", "{92EFC080-7A47-4C84-A2E8-59E7C50EA4A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtScopeLicense", "..\AtScopeLicense\AtScopeLicense.csproj", "{E0E33866-E018-400F-9DA4-6237692CD38A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{BCB28620-803A-45F1-B0DB-2A38C531D7B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{92EFC080-7A47-4C84-A2E8-59E7C50EA4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92EFC080-7A47-4C84-A2E8-59E7C50EA4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92EFC080-7A47-4C84-A2E8-59E7C50EA4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E33866-E018-400F-9DA4-6237692CD38A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E33866-E018-400F-9DA4-6237692CD38A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E33866-E018-400F-9DA4-6237692CD38A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E33866-E018-400F-9DA4-6237692CD38A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB28620-803A-45F1-B0DB-2A38C531D7B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB28620-803A-45F1-B0DB-2A38C531D7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB28620-803A-45F1-B0DB-2A38C531D7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB28620-803A-45F1-B0DB-2A38C531D7B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
