@@ -1,6 +1,6 @@
 ﻿namespace LicenseGenerator
 {
-    partial class Form1
+    partial class KeyUtyForm
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyUtyForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonGenerateKey = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBoxGenerateStrings = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDescrypt = new System.Windows.Forms.Button();
@@ -59,18 +58,33 @@
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerExpireDate = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBoxEditionList2 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonUseCodeIssue = new System.Windows.Forms.Button();
+            this.textBoxUseCodeEncrypt = new System.Windows.Forms.TextBox();
+            this.textBoxUseCode = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.buttonGenerateKey);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxGenerateStrings);
             this.panel1.Location = new System.Drawing.Point(13, 37);
             this.panel1.Name = "panel1";
@@ -80,23 +94,13 @@
             // buttonGenerateKey
             // 
             this.buttonGenerateKey.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonGenerateKey.Location = new System.Drawing.Point(168, 9);
+            this.buttonGenerateKey.Location = new System.Drawing.Point(685, 9);
             this.buttonGenerateKey.Name = "buttonGenerateKey";
-            this.buttonGenerateKey.Size = new System.Drawing.Size(196, 52);
+            this.buttonGenerateKey.Size = new System.Drawing.Size(196, 38);
             this.buttonGenerateKey.TabIndex = 2;
             this.buttonGenerateKey.Text = "キー文字列生成";
             this.buttonGenerateKey.UseVisualStyleBackColor = true;
             this.buttonGenerateKey.Click += new System.EventHandler(this.buttonGenerateKey_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(27, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "キー文字列";
             // 
             // textBoxGenerateStrings
             // 
@@ -111,6 +115,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.buttonDescrypt);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.textBoxLicenseKeyEncrypt);
@@ -129,16 +134,16 @@
             this.panel2.Controls.Add(this.buttonKeyStringGet);
             this.panel2.Location = new System.Drawing.Point(13, 236);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(915, 225);
+            this.panel2.Size = new System.Drawing.Size(915, 172);
             this.panel2.TabIndex = 1;
             // 
             // buttonDescrypt
             // 
-            this.buttonDescrypt.Location = new System.Drawing.Point(658, 95);
+            this.buttonDescrypt.Location = new System.Drawing.Point(32, 73);
             this.buttonDescrypt.Name = "buttonDescrypt";
-            this.buttonDescrypt.Size = new System.Drawing.Size(115, 62);
+            this.buttonDescrypt.Size = new System.Drawing.Size(115, 38);
             this.buttonDescrypt.TabIndex = 18;
-            this.buttonDescrypt.Text = "複合テスト";
+            this.buttonDescrypt.Text = "復号テスト";
             this.buttonDescrypt.UseVisualStyleBackColor = true;
             this.buttonDescrypt.Visible = false;
             this.buttonDescrypt.Click += new System.EventHandler(this.button2_Click);
@@ -147,7 +152,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label8.Location = new System.Drawing.Point(534, 169);
+            this.label8.Location = new System.Drawing.Point(530, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 25);
             this.label8.TabIndex = 17;
@@ -156,7 +161,7 @@
             // textBoxLicenseKeyEncrypt
             // 
             this.textBoxLicenseKeyEncrypt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxLicenseKeyEncrypt.Location = new System.Drawing.Point(618, 170);
+            this.textBoxLicenseKeyEncrypt.Location = new System.Drawing.Point(618, 131);
             this.textBoxLicenseKeyEncrypt.Name = "textBoxLicenseKeyEncrypt";
             this.textBoxLicenseKeyEncrypt.ReadOnly = true;
             this.textBoxLicenseKeyEncrypt.Size = new System.Drawing.Size(263, 27);
@@ -165,7 +170,7 @@
             // textBoxLicenseKey
             // 
             this.textBoxLicenseKey.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxLicenseKey.Location = new System.Drawing.Point(246, 170);
+            this.textBoxLicenseKey.Location = new System.Drawing.Point(246, 131);
             this.textBoxLicenseKey.Name = "textBoxLicenseKey";
             this.textBoxLicenseKey.ReadOnly = true;
             this.textBoxLicenseKey.Size = new System.Drawing.Size(263, 27);
@@ -174,9 +179,9 @@
             // buttonLicenseKeyIssue
             // 
             this.buttonLicenseKeyIssue.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonLicenseKeyIssue.Location = new System.Drawing.Point(32, 155);
+            this.buttonLicenseKeyIssue.Location = new System.Drawing.Point(32, 123);
             this.buttonLicenseKeyIssue.Name = "buttonLicenseKeyIssue";
-            this.buttonLicenseKeyIssue.Size = new System.Drawing.Size(194, 52);
+            this.buttonLicenseKeyIssue.Size = new System.Drawing.Size(194, 38);
             this.buttonLicenseKeyIssue.TabIndex = 14;
             this.buttonLicenseKeyIssue.Text = "ライセンスキー発行";
             this.buttonLicenseKeyIssue.UseVisualStyleBackColor = true;
@@ -186,7 +191,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.Location = new System.Drawing.Point(354, 111);
+            this.label7.Location = new System.Drawing.Point(613, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 25);
             this.label7.TabIndex = 13;
@@ -200,11 +205,12 @@
             "Standard版",
             "Manager版",
             "Archtect版"});
-            this.comboBoxEditionList.Location = new System.Drawing.Point(456, 105);
+            this.comboBoxEditionList.Location = new System.Drawing.Point(719, 85);
             this.comboBoxEditionList.MaxDropDownItems = 3;
             this.comboBoxEditionList.Name = "comboBoxEditionList";
             this.comboBoxEditionList.Size = new System.Drawing.Size(160, 33);
             this.comboBoxEditionList.TabIndex = 12;
+            this.comboBoxEditionList.SelectedIndexChanged += new System.EventHandler(this.comboBoxEditionList_SelectedIndexChanged);
             // 
             // dateTimePickerStartDate
             // 
@@ -212,18 +218,19 @@
             this.dateTimePickerStartDate.CustomFormat = "yyyy/MM";
             this.dateTimePickerStartDate.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerStartDate.Location = new System.Drawing.Point(187, 105);
+            this.dateTimePickerStartDate.Location = new System.Drawing.Point(450, 82);
             this.dateTimePickerStartDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(142, 33);
             this.dateTimePickerStartDate.TabIndex = 11;
             this.dateTimePickerStartDate.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerStartDate.ValueChanged += new System.EventHandler(this.dateTimePickerStartDate_ValueChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(72, 111);
+            this.label6.Location = new System.Drawing.Point(352, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 25);
             this.label6.TabIndex = 10;
@@ -232,7 +239,7 @@
             // textBoxLicenseClientName
             // 
             this.textBoxLicenseClientName.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxLicenseClientName.Location = new System.Drawing.Point(187, 70);
+            this.textBoxLicenseClientName.Location = new System.Drawing.Point(450, 50);
             this.textBoxLicenseClientName.Name = "textBoxLicenseClientName";
             this.textBoxLicenseClientName.Size = new System.Drawing.Size(429, 27);
             this.textBoxLicenseClientName.TabIndex = 9;
@@ -241,7 +248,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(27, 69);
+            this.label5.Location = new System.Drawing.Point(298, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 25);
             this.label5.TabIndex = 8;
@@ -251,7 +258,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(204, 21);
+            this.label4.Location = new System.Drawing.Point(467, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 25);
             this.label4.TabIndex = 7;
@@ -260,7 +267,7 @@
             // textBoxKeyIndex
             // 
             this.textBoxKeyIndex.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxKeyIndex.Location = new System.Drawing.Point(516, 22);
+            this.textBoxKeyIndex.Location = new System.Drawing.Point(779, 15);
             this.textBoxKeyIndex.Name = "textBoxKeyIndex";
             this.textBoxKeyIndex.ReadOnly = true;
             this.textBoxKeyIndex.Size = new System.Drawing.Size(100, 27);
@@ -270,7 +277,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(411, 22);
+            this.label3.Location = new System.Drawing.Point(674, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 25);
             this.label3.TabIndex = 5;
@@ -279,7 +286,7 @@
             // textBoxKey1
             // 
             this.textBoxKey1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxKey1.Location = new System.Drawing.Point(254, 22);
+            this.textBoxKey1.Location = new System.Drawing.Point(517, 15);
             this.textBoxKey1.Name = "textBoxKey1";
             this.textBoxKey1.ReadOnly = true;
             this.textBoxKey1.Size = new System.Drawing.Size(147, 27);
@@ -288,9 +295,9 @@
             // buttonKeyStringGet
             // 
             this.buttonKeyStringGet.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonKeyStringGet.Location = new System.Drawing.Point(32, 14);
+            this.buttonKeyStringGet.Location = new System.Drawing.Point(295, 7);
             this.buttonKeyStringGet.Name = "buttonKeyStringGet";
-            this.buttonKeyStringGet.Size = new System.Drawing.Size(156, 39);
+            this.buttonKeyStringGet.Size = new System.Drawing.Size(156, 38);
             this.buttonKeyStringGet.TabIndex = 3;
             this.buttonKeyStringGet.Text = "キー文字取得";
             this.buttonKeyStringGet.UseVisualStyleBackColor = true;
@@ -300,7 +307,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.listViewLicenseKeyList);
-            this.panel3.Location = new System.Drawing.Point(12, 467);
+            this.panel3.Location = new System.Drawing.Point(14, 524);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(915, 191);
             this.panel3.TabIndex = 2;
@@ -308,7 +315,9 @@
             // listViewLicenseKeyList
             // 
             this.listViewLicenseKeyList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewLicenseKeyList.HideSelection = false;
             this.listViewLicenseKeyList.Location = new System.Drawing.Point(0, 0);
+            this.listViewLicenseKeyList.MultiSelect = false;
             this.listViewLicenseKeyList.Name = "listViewLicenseKeyList";
             this.listViewLicenseKeyList.Size = new System.Drawing.Size(915, 191);
             this.listViewLicenseKeyList.TabIndex = 0;
@@ -317,8 +326,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(12, 664);
+            this.panel4.Location = new System.Drawing.Point(14, 727);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(914, 51);
             this.panel4.TabIndex = 3;
@@ -337,7 +347,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonOpen,
-            this.toolStripButtonSave});
+            this.toolStripButtonSave,
+            this.toolStripButtonSaveAs});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(940, 26);
@@ -360,26 +371,176 @@
             this.toolStripButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSave.Image")));
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(43, 23);
-            this.toolStripButtonSave.Text = "保存";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(123, 23);
+            this.toolStripButtonSave.Text = "名前を付けて保存";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // openFileDialog1
+            // label2
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(352, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "有効期限";
             // 
-            // Form1
+            // dateTimePickerExpireDate
+            // 
+            this.dateTimePickerExpireDate.CalendarFont = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePickerExpireDate.CustomFormat = "yyyy/MM";
+            this.dateTimePickerExpireDate.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePickerExpireDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerExpireDate.Location = new System.Drawing.Point(450, 10);
+            this.dateTimePickerExpireDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerExpireDate.Name = "dateTimePickerExpireDate";
+            this.dateTimePickerExpireDate.Size = new System.Drawing.Size(142, 33);
+            this.dateTimePickerExpireDate.TabIndex = 20;
+            this.dateTimePickerExpireDate.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.Location = new System.Drawing.Point(613, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 25);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "エディション";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Controls.Add(this.textBoxUseCode);
+            this.panel5.Controls.Add(this.textBoxUseCodeEncrypt);
+            this.panel5.Controls.Add(this.buttonUseCodeIssue);
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.comboBoxEditionList2);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.dateTimePickerExpireDate);
+            this.panel5.Location = new System.Drawing.Point(13, 414);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(914, 104);
+            this.panel5.TabIndex = 5;
+            // 
+            // comboBoxEditionList2
+            // 
+            this.comboBoxEditionList2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxEditionList2.FormattingEnabled = true;
+            this.comboBoxEditionList2.Items.AddRange(new object[] {
+            "Standard版",
+            "Manager版",
+            "Archtect版"});
+            this.comboBoxEditionList2.Location = new System.Drawing.Point(719, 13);
+            this.comboBoxEditionList2.MaxDropDownItems = 3;
+            this.comboBoxEditionList2.Name = "comboBoxEditionList2";
+            this.comboBoxEditionList2.Size = new System.Drawing.Size(160, 33);
+            this.comboBoxEditionList2.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label10.Location = new System.Drawing.Point(27, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 25);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "ライセンスキー情報";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label11.Location = new System.Drawing.Point(27, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(262, 25);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "ライセンスキーの元になる文字列";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(27, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "利用コード";
+            // 
+            // buttonUseCodeIssue
+            // 
+            this.buttonUseCodeIssue.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonUseCodeIssue.Location = new System.Drawing.Point(32, 55);
+            this.buttonUseCodeIssue.Name = "buttonUseCodeIssue";
+            this.buttonUseCodeIssue.Size = new System.Drawing.Size(194, 38);
+            this.buttonUseCodeIssue.TabIndex = 24;
+            this.buttonUseCodeIssue.Text = "利用コード発行";
+            this.buttonUseCodeIssue.UseVisualStyleBackColor = true;
+            this.buttonUseCodeIssue.Click += new System.EventHandler(this.buttonUseCodeIssue_Click);
+            // 
+            // textBoxUseCodeEncrypt
+            // 
+            this.textBoxUseCodeEncrypt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxUseCodeEncrypt.Location = new System.Drawing.Point(616, 63);
+            this.textBoxUseCodeEncrypt.Name = "textBoxUseCodeEncrypt";
+            this.textBoxUseCodeEncrypt.ReadOnly = true;
+            this.textBoxUseCodeEncrypt.Size = new System.Drawing.Size(263, 27);
+            this.textBoxUseCodeEncrypt.TabIndex = 25;
+            // 
+            // textBoxUseCode
+            // 
+            this.textBoxUseCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxUseCode.Location = new System.Drawing.Point(246, 63);
+            this.textBoxUseCode.Name = "textBoxUseCode";
+            this.textBoxUseCode.ReadOnly = true;
+            this.textBoxUseCode.Size = new System.Drawing.Size(263, 27);
+            this.textBoxUseCode.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label12.Location = new System.Drawing.Point(530, 65);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 25);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "暗号化";
+            // 
+            // toolStripButtonSaveAs
+            // 
+            this.toolStripButtonSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAs.Image")));
+            this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
+            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(84, 23);
+            this.toolStripButtonSaveAs.Text = "上書き保存";
+            this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label13.Location = new System.Drawing.Point(774, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 20);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Version 0.9";
+            // 
+            // KeyUtyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(940, 727);
+            this.ClientSize = new System.Drawing.Size(940, 781);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "KeyUtyForm";
             this.Text = "AtScopeライセンスキー発行ユーティリティ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -387,8 +548,11 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +562,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonGenerateKey;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxGenerateStrings;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxEditionList;
@@ -426,6 +589,20 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExpireDate;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox comboBoxEditionList2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxUseCodeEncrypt;
+        private System.Windows.Forms.Button buttonUseCodeIssue;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxUseCode;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSaveAs;
+        private System.Windows.Forms.Label label13;
     }
 }
 

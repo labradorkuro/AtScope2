@@ -34,5 +34,9 @@ namespace LicenseGenerator
         {
             this.keyList.Clear();
         }
+        public void updateKeyData(int index, KeyData kd)
+        {
+            this.keyList[index] = kd;
+        }
     }
 }

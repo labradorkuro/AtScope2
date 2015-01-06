@@ -14,15 +14,17 @@ namespace LicenseGenerator
         private string key = "";        // キー文字列
         private int index = 0;          // ５１２文字のキー文字列から取得した位置
         private string clientName = ""; // ライセンス先
-        public KeyData(int index, string keyString, string clientName)
+        private string useCode = "";   // ご利用コード
+        public KeyData(int index, string keyString, string clientName, string useCode)
         {
-            setKeyData(index, keyString,clientName);
+            setKeyData(index, keyString,clientName, useCode);
         }
-        public void setKeyData(int index, string keyString, string clientName)
+        public void setKeyData(int index, string keyString, string clientName, string useCode)
         {
             this.key = keyString;
             this.index = index;
             this.clientName = clientName;
+            this.useCode = useCode;
         }
         public int getIndex()
         {
@@ -35,6 +37,14 @@ namespace LicenseGenerator
         public string getClientName()
         {
             return clientName;
+        }
+        public string getUseCode()
+        {
+            return useCode;
+        }
+        public void setUseCode(string useCode)
+        {
+            this.useCode = useCode;
         }
     }
 }
