@@ -30,9 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyUtyForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.buttonGenerateKey = new System.Windows.Forms.Button();
             this.textBoxGenerateStrings = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.buttonDescrypt = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxLicenseKeyEncrypt = new System.Windows.Forms.TextBox();
@@ -52,26 +54,24 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.listViewLicenseKeyList = new System.Windows.Forms.ListView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerExpireDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBoxEditionList2 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonUseCodeIssue = new System.Windows.Forms.Button();
-            this.textBoxUseCodeEncrypt = new System.Windows.Forms.TextBox();
-            this.textBoxUseCode = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
-            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxUseCode = new System.Windows.Forms.TextBox();
+            this.textBoxUseCodeEncrypt = new System.Windows.Forms.TextBox();
+            this.buttonUseCodeIssue = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxEditionList2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +90,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(915, 193);
             this.panel1.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label11.Location = new System.Drawing.Point(27, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(262, 25);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "ライセンスキーの元になる文字列";
             // 
             // buttonGenerateKey
             // 
@@ -136,6 +146,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(915, 172);
             this.panel2.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label10.Location = new System.Drawing.Point(27, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 25);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "ライセンスキー情報";
             // 
             // buttonDescrypt
             // 
@@ -204,7 +224,14 @@
             this.comboBoxEditionList.Items.AddRange(new object[] {
             "Standard版",
             "Manager版",
-            "Archtect版"});
+            "Archtect版",
+            "Trial版",
+            "Sample版",
+            "Custom版",
+            "Basic版",
+            "Advanced版",
+            "Ultimate版",
+            "Quality版"});
             this.comboBoxEditionList.Location = new System.Drawing.Point(719, 85);
             this.comboBoxEditionList.MaxDropDownItems = 3;
             this.comboBoxEditionList.Name = "comboBoxEditionList";
@@ -333,6 +360,16 @@
             this.panel4.Size = new System.Drawing.Size(914, 51);
             this.panel4.TabIndex = 3;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label13.Location = new System.Drawing.Point(774, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 20);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Version 0.9";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(401, 9);
@@ -374,6 +411,16 @@
             this.toolStripButtonSave.Size = new System.Drawing.Size(123, 23);
             this.toolStripButtonSave.Text = "名前を付けて保存";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
+            // 
+            // toolStripButtonSaveAs
+            // 
+            this.toolStripButtonSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAs.Image")));
+            this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
+            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(84, 23);
+            this.toolStripButtonSaveAs.Text = "上書き保存";
+            this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
             // 
             // label2
             // 
@@ -425,49 +472,33 @@
             this.panel5.Size = new System.Drawing.Size(914, 104);
             this.panel5.TabIndex = 5;
             // 
-            // comboBoxEditionList2
+            // label12
             // 
-            this.comboBoxEditionList2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBoxEditionList2.FormattingEnabled = true;
-            this.comboBoxEditionList2.Items.AddRange(new object[] {
-            "Standard版",
-            "Manager版",
-            "Archtect版"});
-            this.comboBoxEditionList2.Location = new System.Drawing.Point(719, 13);
-            this.comboBoxEditionList2.MaxDropDownItems = 3;
-            this.comboBoxEditionList2.Name = "comboBoxEditionList2";
-            this.comboBoxEditionList2.Size = new System.Drawing.Size(160, 33);
-            this.comboBoxEditionList2.TabIndex = 22;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label12.Location = new System.Drawing.Point(530, 65);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 25);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "暗号化";
             // 
-            // label10
+            // textBoxUseCode
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.Location = new System.Drawing.Point(27, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(158, 25);
-            this.label10.TabIndex = 19;
-            this.label10.Text = "ライセンスキー情報";
+            this.textBoxUseCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxUseCode.Location = new System.Drawing.Point(246, 63);
+            this.textBoxUseCode.Name = "textBoxUseCode";
+            this.textBoxUseCode.ReadOnly = true;
+            this.textBoxUseCode.Size = new System.Drawing.Size(263, 27);
+            this.textBoxUseCode.TabIndex = 26;
             // 
-            // label11
+            // textBoxUseCodeEncrypt
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.Location = new System.Drawing.Point(27, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(262, 25);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "ライセンスキーの元になる文字列";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(27, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 25);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "利用コード";
+            this.textBoxUseCodeEncrypt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxUseCodeEncrypt.Location = new System.Drawing.Point(616, 63);
+            this.textBoxUseCodeEncrypt.Name = "textBoxUseCodeEncrypt";
+            this.textBoxUseCodeEncrypt.ReadOnly = true;
+            this.textBoxUseCodeEncrypt.Size = new System.Drawing.Size(263, 27);
+            this.textBoxUseCodeEncrypt.TabIndex = 25;
             // 
             // buttonUseCodeIssue
             // 
@@ -480,53 +511,36 @@
             this.buttonUseCodeIssue.UseVisualStyleBackColor = true;
             this.buttonUseCodeIssue.Click += new System.EventHandler(this.buttonUseCodeIssue_Click);
             // 
-            // textBoxUseCodeEncrypt
+            // label1
             // 
-            this.textBoxUseCodeEncrypt.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxUseCodeEncrypt.Location = new System.Drawing.Point(616, 63);
-            this.textBoxUseCodeEncrypt.Name = "textBoxUseCodeEncrypt";
-            this.textBoxUseCodeEncrypt.ReadOnly = true;
-            this.textBoxUseCodeEncrypt.Size = new System.Drawing.Size(263, 27);
-            this.textBoxUseCodeEncrypt.TabIndex = 25;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(27, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "利用コード";
             // 
-            // textBoxUseCode
+            // comboBoxEditionList2
             // 
-            this.textBoxUseCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxUseCode.Location = new System.Drawing.Point(246, 63);
-            this.textBoxUseCode.Name = "textBoxUseCode";
-            this.textBoxUseCode.ReadOnly = true;
-            this.textBoxUseCode.Size = new System.Drawing.Size(263, 27);
-            this.textBoxUseCode.TabIndex = 26;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label12.Location = new System.Drawing.Point(530, 65);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 25);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "暗号化";
-            // 
-            // toolStripButtonSaveAs
-            // 
-            this.toolStripButtonSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAs.Image")));
-            this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
-            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(84, 23);
-            this.toolStripButtonSaveAs.Text = "上書き保存";
-            this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label13.Location = new System.Drawing.Point(774, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 20);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Version 0.9";
+            this.comboBoxEditionList2.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxEditionList2.FormattingEnabled = true;
+            this.comboBoxEditionList2.Items.AddRange(new object[] {
+            "Standard版",
+            "Manager版",
+            "Archtect版",
+            "Trial版",
+            "Sample版",
+            "Custom版",
+            "Basic版",
+            "Advanced版",
+            "Ultimate版",
+            "Quality版"});
+            this.comboBoxEditionList2.Location = new System.Drawing.Point(719, 13);
+            this.comboBoxEditionList2.MaxDropDownItems = 3;
+            this.comboBoxEditionList2.Name = "comboBoxEditionList2";
+            this.comboBoxEditionList2.Size = new System.Drawing.Size(160, 33);
+            this.comboBoxEditionList2.TabIndex = 22;
             // 
             // KeyUtyForm
             // 
